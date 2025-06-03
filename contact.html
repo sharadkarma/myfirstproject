@@ -19,13 +19,21 @@
   <p>Email: sharadkarmacharya.63@gmail.com</p>
   <p>GitHub: <a href="https://github.com/sharadkarma" target="_blank">sharadkarma</a></p>
 
-  <!-- Contact Form (not functional, just for show) -->
-  <form>
-    <input type="text" placeholder="Your Name" required><br><br>
-    <input type="email" placeholder="Your Email" required><br><br>
-    <textarea placeholder="Your Message" rows="5" cols="30"></textarea><br><br>
-    <button type="submit" disabled>Send (Coming Soon)</button>
-  </form>
+  <form
+  action="https://formspree.io/f/xyzjylod"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
 
 </body>
 </html>
