@@ -9,6 +9,45 @@ nav {
   background-color: #333;
   padding: 10px;
 }
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  color: darkblue;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.card a:hover {
+  background-color: #555;
+}
+
 
 nav a {
   color: white;
