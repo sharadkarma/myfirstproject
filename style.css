@@ -65,3 +65,14 @@ img {
   border-radius: 10px;
   margin-top: 20px;
 }
+/* Make cards stack on smaller screens */
+@media (max-width: 768px) {
+  .projects {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
