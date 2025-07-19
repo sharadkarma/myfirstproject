@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><style>
-
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
-
-
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sharad Karmacharya | Portfolio</title>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-  
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
   <style>
     /* Reset & base */
     * {
@@ -104,21 +103,6 @@
       background: #fff;
     }
 
-    /* Cursor blinking effect */
-    .cursor {
-      font-weight: 100;
-      font-size: 3.5rem;
-      color: #ffd700;
-      animation: blink 0.7s infinite;
-      user-select: none;
-      margin-left: 5px;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
     /* Sections */
     section {
       padding: 4rem 2rem;
@@ -179,25 +163,52 @@
       font-size: 1rem;
     }
 
-    /* Contact */
+    /* Contact Section */
+    #contact {
+      padding: 4rem 2rem;
+      max-width: 700px;
+      margin: 0 auto 4rem auto;
+      text-align: center;
+      color: #fff;
+    }
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffd700cc;
+    }
+    #contact p {
+      font-weight: 300;
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      color: #eee;
+      text-shadow: 0 0 4px #ffd700bb;
+    }
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
+      gap: 20px;
+      flex-wrap: wrap;
     }
     .contact-links a {
-      font-size: 1.8rem;
-      background: #ffd700;
-      color: #333;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 12px #ffd700aa;
-      transition: background 0.3s ease;
+      font-size: 2.5rem;
+      color: #ffd700;
+      background: rgba(255 255 255 / 0.1);
+      padding: 15px 18px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #ffd700aa;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
     }
     .contact-links a:hover {
-      background: #fff;
-      color: #333;
+      color: #fff;
+      background: #ffd700;
+      box-shadow: 0 0 25px #fff1a8;
+      transform: scale(1.15);
     }
 
     /* Animations */
@@ -235,7 +246,7 @@
 
   <!-- Hero Section -->
   <header class="hero">
-    <h1>Hello, I'm <span id="typed-text"></span><span class="cursor">|</span></h1>
+    <h1>Hello, I'm Sharad</h1>
     <p>Passionate Computer Science student & aspiring developer building awesome projects.</p>
     <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
   </header>
@@ -264,63 +275,33 @@
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Feel free to reach out on any platform below.</p>
+    <p>Feel free to reach out to me on any platform below!</p>
     <div class="contact-links">
-      <a href="mailto:sharad@example.com" target="_blank" aria-label="Email">&#9993;</a>
-      <a href="https://github.com/sharadkarma" target="_blank" aria-label="GitHub">GitHub</a>
-      <a href="https://linkedin.com/in/sharadkarma" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+      <a href="mailto:sharadkarmachrya.63@gmail.com" target="_blank" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.instagram.com/_sharadkarma_/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/sharadkarma" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
     </div>
   </section>
 
-  <script>
-    // Animate sections on scroll
-    const sections = document.querySelectorAll('section');
-    function checkVisibility() {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const boxTop = section.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) {
-          section.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('load', checkVisibility);
-
-    // Typing animation script
-    const text = ["Sharad.", "a Developer.", "a Designer.", "a Creator."]; // words to type
-    let count = 0;
-    let index = 0;
-    let currentText = '';
-    let isDeleting = false;
-    const speed = 150; // typing speed in ms
-    const typedTextSpan = document.getElementById('typed-text');
-
-    function type() {
-      const word = text[count];
-      if (isDeleting) {
-        currentText = word.substring(0, currentText.length - 1);
-      } else {
-        currentText = word.substring(0, currentText.length + 1);
-      }
-
-      typedTextSpan.textContent = currentText;
-
-      if (!isDeleting && currentText === word) {
-        // Pause at end
-        setTimeout(() => isDeleting = true, 1000);
-      } else if (isDeleting && currentText === '') {
-        isDeleting = false;
-        count = (count + 1) % text.length;
-      }
-
-      setTimeout(type, isDeleting ? speed / 2 : speed);
-    }
-
-    // Start typing effect on load
-    window.onload = type;
-  </script>
-  
 </body>
 </html>
+
 
