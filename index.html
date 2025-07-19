@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style>
+
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sharad Karmacharya | Portfolio</title>
@@ -95,6 +102,21 @@
     }
     header.hero button:hover {
       background: #fff;
+    }
+
+    /* Cursor blinking effect */
+    .cursor {
+      font-weight: 100;
+      font-size: 3.5rem;
+      color: #ffd700;
+      animation: blink 0.7s infinite;
+      user-select: none;
+      margin-left: 5px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     /* Sections */
@@ -213,7 +235,7 @@
 
   <!-- Hero Section -->
   <header class="hero">
-    <h1>Hello, I'm Sharad</h1>
+    <h1>Hello, I'm <span id="typed-text"></span><span class="cursor">|</span></h1>
     <p>Passionate Computer Science student & aspiring developer building awesome projects.</p>
     <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
   </header>
@@ -264,6 +286,39 @@
     }
     window.addEventListener('scroll', checkVisibility);
     window.addEventListener('load', checkVisibility);
+
+    // Typing animation script
+    const text = ["Sharad.", "a Developer.", "a Designer.", "a Creator."]; // words to type
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let isDeleting = false;
+    const speed = 150; // typing speed in ms
+    const typedTextSpan = document.getElementById('typed-text');
+
+    function type() {
+      const word = text[count];
+      if (isDeleting) {
+        currentText = word.substring(0, currentText.length - 1);
+      } else {
+        currentText = word.substring(0, currentText.length + 1);
+      }
+
+      typedTextSpan.textContent = currentText;
+
+      if (!isDeleting && currentText === word) {
+        // Pause at end
+        setTimeout(() => isDeleting = true, 1000);
+      } else if (isDeleting && currentText === '') {
+        isDeleting = false;
+        count = (count + 1) % text.length;
+      }
+
+      setTimeout(type, isDeleting ? speed / 2 : speed);
+    }
+
+    // Start typing effect on load
+    window.onload = type;
   </script>
   
 </body>
